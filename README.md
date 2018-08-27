@@ -1,2 +1,2 @@
 # circleci_docker
-Docker image for Circle CI
+Circle CI build image with Docker and Bash
