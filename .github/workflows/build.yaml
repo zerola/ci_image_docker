@@ -23,7 +23,7 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
       - name: Build the Docker image
-        run: docker build -t ${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${CIRCLE_BRANCH} .
+        run: docker build -t ${DOCKER_HUB}/${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${CIRCLE_BRANCH} .
         env:
           CIRCLE_BRANCH: ${{ steps.extract_branch.outputs.branch }}
       - name: Login to Docker Hub
