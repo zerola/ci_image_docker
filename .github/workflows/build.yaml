@@ -5,7 +5,6 @@ on:
 
   schedule:
     - cron: '0 19 * * *'
-    branches: [latest]
 
 env:
   DOCKER_HUB: registry.hub.docker.com
