@@ -1,7 +1,11 @@
 name: Docker Image CI
 
 on:
-  push
+  push:
+
+  schedule:
+    - cron: '0 19 * * *'
+    branches: [latest]
 
 env:
   DOCKER_HUB: registry.hub.docker.com
@@ -28,3 +32,7 @@ jobs:
         with:
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Push the Docker image
+        run: docker push ${DOCKER_HUB}/${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${CIRCLE_BRANCH}
+        env:
+          CIRCLE_BRANCH: ${{ steps.extract_branch.outputs.branch }}
