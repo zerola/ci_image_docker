@@ -33,6 +33,8 @@ jobs:
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push the Docker image
-        run: docker push ${DOCKER_HUB}/${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${CIRCLE_BRANCH}
+        run: |
+          docker tag ${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${CIRCLE_BRANCH} ${DOCKER_HUB}/${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${CIRCLE_BRANCH}
+          docker push ${DOCKER_HUB}/${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${CIRCLE_BRANCH}
         env:
           CIRCLE_BRANCH: ${{ steps.extract_branch.outputs.branch }}
