@@ -4,11 +4,11 @@ on:
   push
 
 env:
-  - DOCKER_HUB: registry.hub.docker.com
-  - DOCKER_IMAGE_NAME: docker
-  - DOCKER_ORG: zerola
-  - DOCKER_USERNAME: zeromic
-  - DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  DOCKER_HUB: registry.hub.docker.com
+  DOCKER_IMAGE_NAME: docker
+  DOCKER_ORG: zerola
+  DOCKER_USERNAME: zeromic
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
 jobs:
   build-and-publish:
