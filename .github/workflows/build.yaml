@@ -25,7 +25,6 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
-          registry: ${{ env.DOCKER_HUB }}
           username: ${{ env.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build the Docker image
@@ -34,7 +33,7 @@ jobs:
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
       - name: Push the Docker image
         run: |
-          docker tag ${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${BRANCH_NAME} ${DOCKER_HUB}/${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${BRANCH_NAME}
-          docker push ${DOCKER_HUB}/${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${BRANCH_NAME}
+          #docker tag ${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${BRANCH_NAME} ${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${BRANCH_NAME}
+          docker push ${DOCKER_ORG}/${DOCKER_IMAGE_NAME}:${BRANCH_NAME}
         env:
           BRANCH_NAME: ${{ steps.extract_branch.outputs.branch }}
