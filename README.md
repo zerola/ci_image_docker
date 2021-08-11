@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/zerola/circleci_docker.svg?style=svg)](https://circleci.com/gh/zerola/circleci_docker)
+![Docker Image CI/CD](https://github.com/zerola/circleci_docker/actions/workflows/build.yml/badge.svg)
 
 # circleci_docker
-Circle CI build image with Docker and Bash
+Build image for CI with Docker and Bash
